@@ -233,3 +233,51 @@
         </div>
     </section>
 @endsection
+
+@section('additional_js')
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.article-body oembed').forEach(element => {
+            const url = element.getAttribute('url');
+            if (!url) return;
+
+            let embedHtml = '';
+            
+            // YouTube regex pattern
+            const ytRegex = /^(?:https?:\/\/)?(?:www\.)?(?:m\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/)?([a-zA-Z0-9_-]{11})(?:&.*|[\?#].*)?$/i;
+            const ytMatch = url.match(ytRegex);
+            
+            if (ytMatch) {
+                const id = ytMatch[1];
+                embedHtml = `<div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; margin: 1.5rem 0; box-shadow: var(--shadow-card);"><iframe src="https://www.youtube.com/embed/${id}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+            }
+            
+            // Google Drive video regex pattern
+            const gdRegex = /^https?:\/\/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/i;
+            const gdMatch = url.match(gdRegex);
+            if (gdMatch) {
+                const id = gdMatch[1];
+                embedHtml = `<div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; margin: 1.5rem 0; box-shadow: var(--shadow-card);"><iframe src="https://drive.google.com/file/d/${id}/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="autoplay" allowfullscreen></iframe></div>`;
+            }
+            
+            // Vimeo regex pattern
+            const vimeoRegex = /^(?:https?:\/\/)?(?:www\.)?vimeo\.com\/(\d+)(?:&.*|[\?#].*)?$/i;
+            const vimeoMatch = url.match(vimeoRegex);
+            if (vimeoMatch) {
+                const id = vimeoMatch[1];
+                embedHtml = `<div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; margin: 1.5rem 0; box-shadow: var(--shadow-card);"><iframe src="https://player.vimeo.com/video/${id}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
+            }
+
+            if (embedHtml) {
+                const figure = element.closest('figure.media');
+                if (figure) {
+                    figure.outerHTML = embedHtml;
+                } else {
+                    element.outerHTML = embedHtml;
+                }
+            }
+        });
+    });
+</script>
+@endsection
+

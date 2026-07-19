@@ -182,6 +182,22 @@
             previewsInData: true,
             extraProviders: [
                 {
+                    name: 'youtube-custom',
+                    url: /^(?:https?:\/\/)?(?:www\.)?(?:m\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/)?([a-zA-Z0-9_-]{11})(?:&.*|[\?#].*)?$/i,
+                    html: match => {
+                        const id = match[1];
+                        return `<div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden;"><iframe src="https://www.youtube.com/embed/${id}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+                    }
+                },
+                {
+                    name: 'google-drive',
+                    url: /^https?:\/\/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/i,
+                    html: match => {
+                        const id = match[1];
+                        return `<div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden;"><iframe src="https://drive.google.com/file/d/${id}/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="autoplay" allowfullscreen></iframe></div>`;
+                    }
+                },
+                {
                     name: 'video-direct',
                     url: /\.(mp4|webm|ogg)(\?.*)?$/i,
                     html: match => `<video src="${match[0]}" controls style="max-width: 100%; border-radius: 8px;"></video>`
