@@ -41,7 +41,7 @@
                          <div class="tutorial-content">
                             <span class="tutorial-category">{{ $tutorial->kategori }}</span>
                             <h3 class="tutorial-title">
-                                <a href="{{ url('/tutorial/' . $tutorial->slug) }}" class="text-decoration-none text-white" style="color: black">
+                                <a href="{{ url('/tutorial/' . $tutorial->slug) }}" class="text-decoration-none">
                                     {{ $tutorial->judul }}
                                 </a>
                             </h3>
