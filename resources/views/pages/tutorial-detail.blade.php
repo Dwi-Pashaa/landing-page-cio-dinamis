@@ -4,7 +4,7 @@
 @section('meta_keywords', $seo->meta_keywords ?? '')
 @section('meta_description', $seo->meta_description ?? Str::limit(strip_tags($tutorial->deskripsi), 160))
 
-@push('additional_css')
+@section('additional_css')
 <style>
     .page-hero-title {
         font-size: 36px;
@@ -166,7 +166,7 @@
         .article-body table td { padding: 8px 10px; white-space: normal; }
     }
 </style>
-@endpush
+@endsection
 
 @section('content')
     <section class="hero-section" style="min-height: auto; padding: 140px 0 60px 0;">
