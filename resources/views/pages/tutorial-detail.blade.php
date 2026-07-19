@@ -131,6 +131,14 @@
     .article-body figure {
         margin: 1.5rem 0;
     }
+    /* Fix CKEditor 5 and Bootstrap 4 .media class conflict */
+    .article-body figure.media {
+        display: block;
+        width: 100%;
+    }
+    .article-body figure.media > div {
+        width: 100%;
+    }
     .article-body figcaption {
         text-align: center;
         font-size: 14px;
