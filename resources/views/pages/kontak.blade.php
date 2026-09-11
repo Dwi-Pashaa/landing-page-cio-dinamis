@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $seo->meta_title ?? 'Kontak Kami - Cio Network Solution')
+@section('title', $seo->meta_title ?? 'Kontak Kami - PT CIO NETWORK NUSANTARA')
 @section('meta_keywords', $seo->meta_keywords ?? '')
 @section('meta_description', $seo->meta_description ?? '')
 
@@ -116,7 +116,7 @@
       $(document).ready(function () {
          $("#contact-form").validate({
             submitHandler: function(form) {
-               alert("Pesan Anda telah berhasil terkirim ke tim Cio Network Solution!");
+               alert("Pesan Anda telah berhasil terkirim ke tim PT CIO NETWORK NUSANTARA!");
                form.reset();
             }
          });

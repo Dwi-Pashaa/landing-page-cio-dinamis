@@ -12,19 +12,21 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Admin user
-        User::create([
-            'name' => 'Admin CIO',
-            'username' => 'admin',
-            'email' => 'admin@cionetwork.id',
-            'password' => Hash::make('admin123'),
-        ]);
+        User::firstOrCreate(
+            ['email' => 'admin@cionetwork.id'],
+            [
+                'name' => 'Admin CIO',
+                'username' => 'admin',
+                'password' => Hash::make('admin123'),
+            ]
+        );
 
         // Site Settings
         $settings = [
-            ['key' => 'company_name', 'value' => 'CIO Network Solution', 'group' => 'navbar', 'label' => 'Nama Perusahaan'],
+            ['key' => 'company_name', 'value' => 'PT CIO NETWORK NUSANTARA', 'group' => 'navbar', 'label' => 'Nama Perusahaan'],
             ['key' => 'wa_cta', 'value' => '6285324780031', 'group' => 'navbar', 'label' => 'Nomor WA Navbar'],
             ['key' => 'footer_desc', 'value' => 'Penyedia layanan internet berbasis serat optik generasi terbaru yang menghadirkan kecepatan tinggi, stabil, tanpa batas FUP, dan terjangkau.', 'group' => 'footer', 'label' => 'Deskripsi Footer'],
-            ['key' => 'copyright_text', 'value' => '&copy; 2026 Cio Network Solution. Semua Hak Dilindungi Undang-Undang.', 'group' => 'footer', 'label' => 'Teks Copyright'],
+            ['key' => 'copyright_text', 'value' => '&copy; 2026 PT CIO NETWORK NUSANTARA. Semua Hak Dilindungi Undang-Undang.', 'group' => 'footer', 'label' => 'Teks Copyright'],
             ['key' => 'fb_url', 'value' => '#', 'group' => 'social_media', 'label' => 'URL Facebook'],
             ['key' => 'ig_url', 'value' => '#', 'group' => 'social_media', 'label' => 'URL Instagram'],
             ['key' => 'tw_url', 'value' => '#', 'group' => 'social_media', 'label' => 'URL Twitter'],
@@ -44,7 +46,7 @@ class DatabaseSeeder extends Seeder
         DB::table('hero_sections')->insert([
             'badge_text' => 'Internet Fiber Optic Tercepat',
             'title' => 'Koneksi Ultra Cepat <br>Tanpa Batas <span>Untuk Anda</span>',
-            'description' => 'Rasakan kestabilan internet 24/7 tanpa FUP (Fair Usage Policy) dari Cio Network Solution. Hadir dengan infrastruktur 100% serat optik untuk mendukung WFH, belajar online, streaming HD, hingga kebutuhan bisnis Anda.',
+            'description' => 'Rasakan kestabilan internet 24/7 tanpa FUP (Fair Usage Policy) dari PT CIO NETWORK NUSANTARA. Hadir dengan infrastruktur 100% serat optik untuk mendukung WFH, belajar online, streaming HD, hingga kebutuhan bisnis Anda.',
             'btn_primary_text' => 'Pilih Paket Internet',
             'btn_primary_url' => '/paket-internet',
             'btn_secondary_text' => 'Tentang Kami',
@@ -325,46 +327,46 @@ class DatabaseSeeder extends Seeder
             [
                 'page_key' => 'home',
                 'page_label' => 'Beranda',
-                'meta_title' => 'Cio Network Solution - Internet Fiber Optic Ultra Cepat & Tanpa FUP',
-                'meta_description' => 'Selamat datang di Cio Network Solution. Temukan layanan internet fiber optic cepat dan unlimited tanpa FUP untuk menunjang aktivitas Anda.',
-                'meta_keywords' => 'isp, cio network solution, internet cepat, fiber optic, internet murah, internet unlimited, wifi rumah, wifi kantor',
-                'og_title' => 'Cio Network Solution - Internet Fiber Optic Ultra Cepat',
+                'meta_title' => 'PT CIO NETWORK NUSANTARA - Internet Fiber Optic Ultra Cepat & Tanpa FUP',
+                'meta_description' => 'Selamat datang di PT CIO NETWORK NUSANTARA. Temukan layanan internet fiber optic cepat dan unlimited tanpa FUP untuk menunjang aktivitas Anda.',
+                'meta_keywords' => 'isp, pt cio network nusantara, internet cepat, fiber optic, internet murah, internet unlimited, wifi rumah, wifi kantor',
+                'og_title' => 'PT CIO NETWORK NUSANTARA - Internet Fiber Optic Ultra Cepat',
                 'og_description' => 'Temukan layanan internet fiber optic cepat dan unlimited tanpa FUP.',
             ],
             [
                 'page_key' => 'tentang-kami',
                 'page_label' => 'Tentang Kami',
-                'meta_title' => 'Tentang Kami - Cio Network Solution',
-                'meta_description' => 'Kenali Cio Network Solution, mitra resmi ISP Andira Infomedia dengan pengalaman lebih dari 5 tahun.',
+                'meta_title' => 'Tentang Kami - PT CIO NETWORK NUSANTARA',
+                'meta_description' => 'Kenali PT CIO NETWORK NUSANTARA, mitra resmi ISP Andira Infomedia dengan pengalaman lebih dari 5 tahun.',
                 'meta_keywords' => 'tentang cio network, profil perusahaan, isp bandung, internet fiber optic',
-                'og_title' => 'Tentang Cio Network Solution',
+                'og_title' => 'Tentang PT CIO NETWORK NUSANTARA',
                 'og_description' => 'Mitra resmi ISP Andira Infomedia dengan pengalaman lebih dari 5 tahun.',
             ],
             [
                 'page_key' => 'paket-internet',
                 'page_label' => 'Paket Internet',
-                'meta_title' => 'Paket Internet - Cio Network Solution',
-                'meta_description' => 'Pilih paket internet fiber optic terbaik dari Cio Network Solution. Tersedia paket home bulanan dan voucher fleksibel.',
+                'meta_title' => 'Paket Internet - PT CIO NETWORK NUSANTARA',
+                'meta_description' => 'Pilih paket internet fiber optic terbaik dari PT CIO NETWORK NUSANTARA. Tersedia paket home bulanan dan voucher fleksibel.',
                 'meta_keywords' => 'paket internet, wifi bulanan, wifi voucher, internet murah, paket wifi rumah',
-                'og_title' => 'Paket Internet Cio Network Solution',
+                'og_title' => 'Paket Internet PT CIO NETWORK NUSANTARA',
                 'og_description' => 'Pilih paket internet fiber optic terbaik untuk kebutuhan Anda.',
             ],
             [
                 'page_key' => 'tutorial',
                 'page_label' => 'Tutorial',
-                'meta_title' => 'Tutorial & Bantuan - Cio Network Solution',
-                'meta_description' => 'Kumpulan tutorial dan panduan praktis menggunakan layanan internet Cio Network Solution.',
+                'meta_title' => 'Tutorial & Bantuan - PT CIO NETWORK NUSANTARA',
+                'meta_description' => 'Kumpulan tutorial dan panduan praktis menggunakan layanan internet PT CIO NETWORK NUSANTARA.',
                 'meta_keywords' => 'tutorial internet, panduan wifi, cara bayar wifi, voucher internet',
-                'og_title' => 'Tutorial Cio Network Solution',
+                'og_title' => 'Tutorial PT CIO NETWORK NUSANTARA',
                 'og_description' => 'Panduan praktis mengoptimalkan jaringan internet Anda.',
             ],
             [
                 'page_key' => 'kontak',
                 'page_label' => 'Kontak',
-                'meta_title' => 'Kontak Kami - Cio Network Solution',
-                'meta_description' => 'Hubungi tim Cio Network Solution untuk pertanyaan, pendaftaran, atau bantuan teknis.',
-                'meta_keywords' => 'kontak isp,客服 internet, daftar wifi, hubungi cio network',
-                'og_title' => 'Kontak Cio Network Solution',
+                'meta_title' => 'Kontak Kami - PT CIO NETWORK NUSANTARA',
+                'meta_description' => 'Hubungi tim PT CIO NETWORK NUSANTARA untuk pertanyaan, pendaftaran, atau bantuan teknis.',
+                'meta_keywords' => 'kontak isp, internet, daftar wifi, hubungi cio network',
+                'og_title' => 'Kontak PT CIO NETWORK NUSANTARA',
                 'og_description' => 'Hubungi tim kami untuk pertanyaan atau pendaftaran.',
             ],
         ];

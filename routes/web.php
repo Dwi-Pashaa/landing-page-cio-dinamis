@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\HeroController;
+use App\Http\Controllers\Admin\TentangKamiAdminController;
 use App\Http\Controllers\Admin\PaketController;
 use App\Http\Controllers\Admin\TutorialAdminController;
 use App\Http\Controllers\Admin\TagController;
@@ -39,6 +40,9 @@ Route::prefix('/cms')->group(function () {
 
         Route::get('/hero/edit', [HeroController::class, 'edit'])->middleware('can:view-hero');
         Route::put('/hero', [HeroController::class, 'update'])->middleware('can:update-hero');
+
+        Route::get('/tentang-kami/edit', [TentangKamiAdminController::class, 'edit'])->middleware('can:view-tentang-kami');
+        Route::put('/tentang-kami', [TentangKamiAdminController::class, 'update'])->middleware('can:update-tentang-kami');
 
         Route::get('/paket', [PaketController::class, 'index'])->middleware('can:view-paket');
         Route::get('/paket/create', [PaketController::class, 'create'])->middleware('can:create-paket');

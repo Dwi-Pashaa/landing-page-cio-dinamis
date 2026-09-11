@@ -1,9 +1,8 @@
 <aside class="admin-sidebar" id="adminSidebar">
-    <div class="sidebar-header">
-        <a href="{{ url('/cms') }}" class="sidebar-brand">
-            <div class="sidebar-logos">
-                <img src="{{ asset('img/logo.jpg') }}" alt="CIO" class="sidebar-logo-img">
-                <img src="{{ asset('img/logo_2.jpeg') }}" alt="CIO" class="sidebar-logo-img-2">
+    <div class="sidebar-header" style="padding: 16px 14px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <a href="{{ url('/cms') }}" class="sidebar-brand" style="display: block; text-decoration: none; width: 100%;">
+            <div class="sidebar-logos" style="background: #ffffff; border-radius: 10px; padding: 8px 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); width: 100%;">
+                <img src="{{ asset('img/logo_baru.jpeg') }}" alt="PT CIO NETWORK NUSANTARA" class="sidebar-logo-img" style="height: 38px; width: auto; max-width: 100%; object-fit: contain; display: block;">
             </div>
         </a>
     </div>
@@ -37,6 +36,14 @@
                 <a href="{{ url('/cms/hero/edit') }}" class="nav-link">
                     <i class="fa-solid fa-window-maximize nav-icon"></i>
                     <span class="nav-label">Hero</span>
+                </a>
+            </li>
+            @endcan
+            @can('view-tentang-kami')
+            <li class="nav-item {{ request()->is('cms/tentang-kami*') ? 'active' : '' }}">
+                <a href="{{ url('/cms/tentang-kami/edit') }}" class="nav-link">
+                    <i class="fa-solid fa-address-card nav-icon"></i>
+                    <span class="nav-label">Tentang Kami</span>
                 </a>
             </li>
             @endcan

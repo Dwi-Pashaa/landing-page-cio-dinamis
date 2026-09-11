@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $seo->meta_title ?? 'Tutorial & Bantuan - Cio Network Solution')
+@section('title', $seo->meta_title ?? 'Tutorial & Bantuan - PT CIO NETWORK NUSANTARA')
 @section('meta_keywords', $seo->meta_keywords ?? '')
 @section('meta_description', $seo->meta_description ?? '')
 

@@ -79,7 +79,7 @@
                                     <label class="form-label">Preview Google Search</label>
                                     <div class="seo-preview-card mb-3">
                                         <div class="preview-url">cionetwork.id/{{ $key === 'home' ? '' : $key }}</div>
-                                        <div class="preview-title">{{ $seo->meta_title ?? $label . ' - CIO Network Solution' }}</div>
+                                        <div class="preview-title">{{ $seo->meta_title ?? $label . ' - PT CIO NETWORK NUSANTARA' }}</div>
                                         <div class="preview-desc">{{ $seo->meta_description ?? '' }}</div>
                                     </div>
 

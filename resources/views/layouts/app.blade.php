@@ -6,9 +6,9 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <title>@yield('title', $seo->meta_title ?? 'Cio Network Solution - Internet Fiber Optic Ultra Cepat & Tanpa FUP')</title>
-   <meta name="keywords" content="@yield('meta_keywords', $seo->meta_keywords ?? 'isp, cio network solution, internet cepat, fiber optic, internet murah, internet unlimited, wifi rumah, wifi kantor')">
-   <meta name="description" content="@yield('meta_description', $seo->meta_description ?? 'Selamat datang di Cio Network Solution. Temukan layanan internet fiber optic cepat dan unlimited tanpa FUP untuk menunjang aktivitas Anda.')">
+   <title>@yield('title', $seo->meta_title ?? 'PT CIO NETWORK NUSANTARA - Internet Fiber Optic Ultra Cepat & Tanpa FUP')</title>
+   <meta name="keywords" content="@yield('meta_keywords', $seo->meta_keywords ?? 'isp, pt cio network nusantara, cio network nusantara, internet cepat, fiber optic, internet murah, internet unlimited, wifi rumah, wifi kantor')">
+   <meta name="description" content="@yield('meta_description', $seo->meta_description ?? 'Selamat datang di PT CIO NETWORK NUSANTARA. Temukan layanan internet fiber optic cepat dan unlimited tanpa FUP untuk menunjang aktivitas Anda.')">
 
    @if(isset($seo))
        <meta property="og:title" content="{{ $seo->og_title ?? $seo->meta_title }}">
@@ -31,23 +31,26 @@
         .navbar-brand {
             display: flex;
             align-items: center;
-            gap: 6px;
+            padding: 0;
+            margin-right: 1.5rem;
         }
         .navbar-brand .navbar-logo-img {
-            height: 32px;
+            height: 48px;
             width: auto;
+            max-height: 52px;
             display: block;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.95);
-            padding: 3px 6px;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            transition: transform 0.25s ease, opacity 0.25s ease;
         }
-        .navbar-brand .navbar-logo-img-2 {
-            height: 28px;
-            width: auto;
-            display: block;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.95);
-            padding: 3px 6px;
+        .navbar-brand:hover .navbar-logo-img {
+            transform: scale(1.03);
+            opacity: 0.95;
+        }
+        @media (max-width: 991px) {
+            .navbar-brand .navbar-logo-img {
+                height: 38px;
+            }
         }
         .footer-brand {
             display: flex;
@@ -55,15 +58,7 @@
             gap: 6px;
         }
         .footer-brand .footer-logo-img {
-            height: 36px;
-            width: auto;
-            display: block;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.95);
-            padding: 3px 6px;
-        }
-        .footer-brand .footer-logo-img-2 {
-            height: 32px;
+            height: 48px;
             width: auto;
             display: block;
             border-radius: 6px;
@@ -78,8 +73,7 @@
    <nav class="navbar navbar-expand-lg fixed-top modern-navbar">
       <div class="container">
          <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{ asset('img/logo.jpg') }}" alt="CIO" class="navbar-logo-img">
-            <img src="{{ asset('img/logo_2.jpeg') }}" alt="CIO" class="navbar-logo-img-2">
+            <img src="{{ asset('img/logo_baru.jpeg') }}" alt="PT CIO NETWORK NUSANTARA" class="navbar-logo-img">
          </a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,10 +115,9 @@
       <div class="container">
          <div class="row py-5">
             <div class="col-lg-4 mb-4 mb-lg-0">
-               @php $companyName = \App\Models\SiteSetting::getValue('company_name', 'CIO Network Solution') @endphp
+               @php $companyName = \App\Models\SiteSetting::getValue('company_name', 'PT CIO NETWORK NUSANTARA') @endphp
                <h3 class="footer-brand">
-                  <img src="{{ asset('img/logo.jpg') }}" alt="CIO" class="footer-logo-img">
-                  <img src="{{ asset('img/logo_2.jpeg') }}" alt="CIO" class="footer-logo-img-2">
+                  <img src="{{ asset('img/logo_baru.jpeg') }}" alt="PT CIO NETWORK NUSANTARA" class="footer-logo-img">
                </h3>
                <p class="footer-desc mt-3">{{ \App\Models\SiteSetting::getValue('footer_desc', 'Penyedia layanan internet berbasis serat optik generasi terbaru yang menghadirkan kecepatan tinggi, stabil, tanpa batas FUP, dan terjangkau.') }}</p>
                <div class="footer-social mt-4">
@@ -171,7 +164,7 @@
 
          <div class="row py-4 align-items-center">
             <div class="col-md-6 text-center text-md-left">
-               <p class="copyright-text mb-0">{!! \App\Models\SiteSetting::getValue('copyright_text', '&copy; 2026 Cio Network Solution. Semua Hak Dilindungi Undang-Undang.') !!}</p>
+               <p class="copyright-text mb-0">{!! \App\Models\SiteSetting::getValue('copyright_text', '&copy; 2026 PT CIO NETWORK NUSANTARA. Semua Hak Dilindungi Undang-Undang.') !!}</p>
                @if($ownerName)
                    <p class="copyright-text mb-0" style="margin-top: 4px; opacity: 0.75;">Owner: {{ $ownerName }}</p>
                @endif

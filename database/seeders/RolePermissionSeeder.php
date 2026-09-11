@@ -23,6 +23,10 @@ class RolePermissionSeeder extends Seeder
             'view-hero',
             'update-hero',
 
+            // Tentang Kami
+            'view-tentang-kami',
+            'update-tentang-kami',
+
             // Paket Internet
             'view-paket',
             'create-paket',
@@ -80,6 +84,7 @@ class RolePermissionSeeder extends Seeder
             'view-dashboard',
             'view-analytics',
             'view-hero', 'update-hero',
+            'view-tentang-kami', 'update-tentang-kami',
             'view-paket', 'create-paket', 'edit-paket', 'delete-paket',
             'view-tutorial', 'create-tutorial', 'edit-tutorial', 'delete-tutorial',
             'view-tags', 'create-tags', 'edit-tags', 'delete-tags',
@@ -97,9 +102,14 @@ class RolePermissionSeeder extends Seeder
             'view-keunggulan', 'create-keunggulan', 'edit-keunggulan',
         ]);
 
-        $user = User::where('email', 'admin@cionetwork.id')->first();
-        if ($user) {
-            $user->assignRole('Super Admin');
-        }
+        $user = User::firstOrCreate(
+            ['email' => 'admin@cionetwork.id'],
+            [
+                'name' => 'Admin CIO',
+                'username' => 'admin',
+                'password' => \Illuminate\Support\Facades\Hash::make('admin123'),
+            ]
+        );
+        $user->assignRole('Super Admin');
     }
 }

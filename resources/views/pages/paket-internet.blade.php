@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $seo->meta_title ?? 'Paket Internet - Cio Network Solution')
+@section('title', $seo->meta_title ?? 'Paket Internet - PT CIO NETWORK NUSANTARA')
 @section('meta_keywords', $seo->meta_keywords ?? '')
 @section('meta_description', $seo->meta_description ?? '')
 
@@ -103,7 +103,7 @@
                       <div class="btn-holder-card">
                          @php
                              $waNum = $paket->wa_number ?? '6285700180302';
-                             $waMsg = $paket->wa_message ?? 'Halo Cio Network Solution, saya tertarik dengan paket ini.';
+                             $waMsg = $paket->wa_message ?? 'Halo PT CIO NETWORK NUSANTARA, saya tertarik dengan paket ini.';
                          @endphp
                          <a href="https://wa.me/{{ $waNum }}?text={{ urlencode($waMsg) }}" target="_blank"
                             class="{{ $paket->is_rekomendasi ? 'btn btn-gradient-glow w-100 py-3' : 'btn btn-outline-indigo w-100 py-3' }}"

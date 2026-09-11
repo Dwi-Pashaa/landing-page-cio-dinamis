@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $seo->meta_title ?? 'Cio Network Solution - Internet Fiber Optic Ultra Cepat & Tanpa FUP')
+@section('title', $seo->meta_title ?? 'PT CIO NETWORK NUSANTARA - Internet Fiber Optic Ultra Cepat & Tanpa FUP')
 @section('meta_keywords', $seo->meta_keywords ?? '')
 @section('meta_description', $seo->meta_description ?? '')
 
@@ -28,7 +28,7 @@
                @else
                    <span class="badge badge-indigo animate-pulse mb-3">Internet Fiber Optic Tercepat</span>
                    <h1 class="hero-title">Koneksi Ultra Cepat <br>Tanpa Batas <span>Untuk Anda</span></h1>
-                   <p class="hero-desc">Rasakan kestabilan internet 24/7 tanpa FUP (Fair Usage Policy) dari Cio Network Solution.</p>
+                   <p class="hero-desc">Rasakan kestabilan internet 24/7 tanpa FUP (Fair Usage Policy) dari PT CIO NETWORK NUSANTARA.</p>
                    <div class="hero-buttons">
                        <a href="{{ url('/paket-internet') }}" class="btn btn-gradient-glow btn-lg mr-3">Pilih Paket Internet</a>
                        <a href="{{ url('/tentang-kami') }}" class="btn btn-outline-light btn-lg">Tentang Kami</a>
@@ -39,9 +39,9 @@
                <div class="visual-wrapper">
                   <div class="glowing-ring"></div>
                   @if($hero && $hero->hero_image)
-                      <img src="{{ asset('storage/' . $hero->hero_image) }}" alt="Cio Network Solution" class="img-fluid floating-animation">
+                      <img src="{{ asset('storage/' . $hero->hero_image) }}" alt="PT CIO NETWORK NUSANTARA" class="img-fluid floating-animation">
                   @else
-                      <img src="{{ asset('pages/images/banner-img.png') }}" alt="Cio Network Solution" class="img-fluid floating-animation">
+                      <img src="{{ asset('pages/images/banner-img.png') }}" alt="PT CIO NETWORK NUSANTARA" class="img-fluid floating-animation">
                   @endif
                </div>
             </div>
@@ -54,11 +54,11 @@
          <div class="section-header text-center mb-5">
             <span class="badge badge-indigo mb-2">Tentang Kami</span>
             <h2 class="section-title">Solusi Internet Fiber Optic Terbaik</h2>
-            <p class="section-subtitle mx-auto">Cio Network Solution berkomitmen menghadirkan koneksi simetris berkecepatan tinggi yang flat dan tanpa batasan kuota.</p>
+            <p class="section-subtitle mx-auto">PT CIO NETWORK NUSANTARA berkomitmen menghadirkan koneksi simetris berkecepatan tinggi yang flat dan tanpa batasan kuota.</p>
          </div>
          <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
-               <h3 class="feature-title mb-3" style="font-size: 24px;">Siapa Cio Network Solution?</h3>
+               <h3 class="feature-title mb-3" style="font-size: 24px;">Siapa PT CIO NETWORK NUSANTARA?</h3>
                <p class="mb-4">Kami adalah penyedia dan pengelola solusi jaringan internet terjangkau dengan pengalaman lebih dari 5 tahun. Sebagai mitra resmi ISP Andira Infomedia, kami beroperasi dengan legalitas yang jelas — hadir menyambungkan setiap rumah dan bisnis dengan koneksi cepat, stabil, dan tanpa batas kuota.</p>
 
                <div class="row mt-4">
@@ -134,7 +134,7 @@
                       <div class="action-wrapper">
                          @php
                              $waNum = $paket->wa_number ?? '6285700180302';
-                             $waMsg = $paket->wa_message ?? 'Halo Cio Network Solution, saya tertarik dengan paket ini.';
+                             $waMsg = $paket->wa_message ?? 'Halo PT CIO NETWORK NUSANTARA, saya tertarik dengan paket ini.';
                          @endphp
                          <a href="https://wa.me/{{ $waNum }}?text={{ urlencode($waMsg) }}" target="_blank" class="btn btn-gradient-glow w-100 py-3">HUBUNGI SEKARANG</a>
                       </div>
@@ -224,7 +224,7 @@
             </div>
             <div class="col-lg-6 text-center text-lg-left">
                <h3 class="feature-title mb-3" style="font-size: 24px;">Hubungi Kami Sekarang</h3>
-               <p class="mb-4">Kami siap menjawab segala pertanyaan Anda perihal layanan internet murni fiber optic dari Cio Network Solution. Dapatkan promo instalasi gratis khusus hari ini!</p>
+               <p class="mb-4">Kami siap menjawab segala pertanyaan Anda perihal layanan internet murni fiber optic dari PT CIO NETWORK NUSANTARA. Dapatkan promo instalasi gratis khusus hari ini!</p>
                <a href="{{ url('/kontak') }}" class="btn btn-gradient-glow px-5 py-3">Buka Formulir Kontak Pelanggan</a>
             </div>
          </div>

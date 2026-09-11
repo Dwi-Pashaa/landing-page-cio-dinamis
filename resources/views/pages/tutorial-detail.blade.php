@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $tutorial->judul . ' - Cio Network Solution')
-@section('meta_keywords', $seo->meta_keywords ?? '')
+@section('title', $tutorial->judul . ' - PT CIO NETWORK NUSANTARA')
+@section('meta_keywords', $tutorial->kategori . ', tutorial, bantuan, internet')
 @section('meta_description', $seo->meta_description ?? Str::limit(strip_tags($tutorial->deskripsi), 160))
 
 @section('additional_css')
