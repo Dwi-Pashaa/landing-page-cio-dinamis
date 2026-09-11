@@ -2,7 +2,7 @@
     <div class="sidebar-header" style="padding: 16px 14px; border-bottom: 1px solid rgba(255,255,255,0.08);">
         <a href="{{ url('/cms') }}" class="sidebar-brand" style="display: block; text-decoration: none; width: 100%;">
             <div class="sidebar-logos" style="background: #ffffff; border-radius: 10px; padding: 8px 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); width: 100%;">
-                <img src="{{ asset('img/logo_baru.jpeg') }}" alt="PT CIO NETWORK NUSANTARA" class="sidebar-logo-img" style="height: 38px; width: auto; max-width: 100%; object-fit: contain; display: block;">
+                <img src="{{ asset('img/logo_baru.png') }}" alt="PT CIO NETWORK NUSANTARA" class="sidebar-logo-img" style="height: 38px; width: auto; max-width: 100%; object-fit: contain; display: block;">
             </div>
         </a>
     </div>

@@ -147,7 +147,7 @@
 <body>
     <div class="login-card">
         <div class="login-logo">
-            <img src="{{ asset('img/logo_baru.jpeg') }}" alt="PT CIO NETWORK NUSANTARA">
+            <img src="{{ asset('img/logo_baru.png') }}" alt="PT CIO NETWORK NUSANTARA">
         </div>
         <div class="login-title">Selamat Datang Kembali</div>
         <div class="login-subtitle">Masuk ke panel admin PT CIO NETWORK NUSANTARA</div>

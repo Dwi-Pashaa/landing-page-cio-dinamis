@@ -40,7 +40,6 @@
             max-height: 52px;
             display: block;
             object-fit: contain;
-            mix-blend-mode: multiply;
             transition: transform 0.25s ease, opacity 0.25s ease;
         }
         .navbar-brand:hover .navbar-logo-img {
@@ -61,9 +60,10 @@
             height: 48px;
             width: auto;
             display: block;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.95);
-            padding: 3px 6px;
+            border-radius: 8px;
+            background: #ffffff;
+            padding: 4px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
     </style>
     @yield('additional_css')
@@ -73,7 +73,7 @@
    <nav class="navbar navbar-expand-lg fixed-top modern-navbar">
       <div class="container">
          <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{ asset('img/logo_baru.jpeg') }}" alt="PT CIO NETWORK NUSANTARA" class="navbar-logo-img">
+            <img src="{{ asset('img/logo_baru.png') }}" alt="PT CIO NETWORK NUSANTARA" class="navbar-logo-img">
          </a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -117,7 +117,7 @@
             <div class="col-lg-4 mb-4 mb-lg-0">
                @php $companyName = \App\Models\SiteSetting::getValue('company_name', 'PT CIO NETWORK NUSANTARA') @endphp
                <h3 class="footer-brand">
-                  <img src="{{ asset('img/logo_baru.jpeg') }}" alt="PT CIO NETWORK NUSANTARA" class="footer-logo-img">
+                  <img src="{{ asset('img/logo_baru.png') }}" alt="PT CIO NETWORK NUSANTARA" class="footer-logo-img">
                </h3>
                <p class="footer-desc mt-3">{{ \App\Models\SiteSetting::getValue('footer_desc', 'Penyedia layanan internet berbasis serat optik generasi terbaru yang menghadirkan kecepatan tinggi, stabil, tanpa batas FUP, dan terjangkau.') }}</p>
                <div class="footer-social mt-4">
