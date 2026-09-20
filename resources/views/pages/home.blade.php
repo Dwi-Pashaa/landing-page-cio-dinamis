@@ -52,20 +52,29 @@
    <section class="about-section layout_padding">
       <div class="container">
          <div class="section-header text-center mb-5">
-            <span class="badge badge-indigo mb-2">Tentang Kami</span>
-            <h2 class="section-title">Solusi Internet Fiber Optic Terbaik</h2>
-            <p class="section-subtitle mx-auto">PT CIO NETWORK NUSANTARA berkomitmen menghadirkan koneksi simetris berkecepatan tinggi yang flat dan tanpa batasan kuota.</p>
+            <span class="badge badge-indigo mb-2">{{ $about->hero_badge ?? 'Tentang Kami' }}</span>
+            <h2 class="section-title">{!! $about->hero_title ?? 'Solusi Internet Fiber Optic Terbaik' !!}</h2>
+            <p class="section-subtitle mx-auto">{{ $about->hero_description ?? 'PT CIO NETWORK NUSANTARA berkomitmen menghadirkan koneksi simetris berkecepatan tinggi yang flat dan tanpa batasan kuota.' }}</p>
          </div>
          <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
-               <h3 class="feature-title mb-3" style="font-size: 24px;">Siapa PT CIO NETWORK NUSANTARA?</h3>
-               <p class="mb-4">Kami adalah penyedia dan pengelola solusi jaringan internet terjangkau dengan pengalaman lebih dari 5 tahun. Sebagai mitra resmi ISP Andira Infomedia, kami beroperasi dengan legalitas yang jelas — hadir menyambungkan setiap rumah dan bisnis dengan koneksi cepat, stabil, dan tanpa batas kuota.</p>
+               <h3 class="feature-title mb-3" style="font-size: 24px;">{{ $about->about_title ?? 'Siapa PT CIO NETWORK NUSANTARA?' }}</h3>
+               @if(!empty($about->about_lead))
+                   <p class="lead mb-3" style="color: var(--text-title); font-weight: 600; font-size: 16px;">{{ $about->about_lead }}</p>
+               @endif
+               <p class="mb-4">{{ $about->about_description ?? 'Kami adalah penyedia dan pengelola solusi jaringan internet terjangkau dengan pengalaman lebih dari 5 tahun. Sebagai mitra resmi ISP Andira Infomedia, kami beroperasi dengan legalitas yang jelas — hadir menyambungkan setiap rumah dan bisnis dengan koneksi cepat, stabil, dan tanpa batas kuota.' }}</p>
 
                <div class="row mt-4">
-                   <div class="col-sm-6 mb-3"><div class="d-flex align-items-center"><i class="fa-solid fa-circle-check text-primary mr-2" style="font-size: 18px;"></i><span style="font-weight: 600; color: var(--text-title);">Unggah & Unduh Simetris</span></div></div>
-                   <div class="col-sm-6 mb-3"><div class="d-flex align-items-center"><i class="fa-solid fa-circle-check text-primary mr-2" style="font-size: 18px;"></i><span style="font-weight: 600; color: var(--text-title);">True Unlimited (No FUP)</span></div></div>
-                   <div class="col-sm-6 mb-3"><div class="d-flex align-items-center"><i class="fa-solid fa-circle-check text-primary mr-2" style="font-size: 18px;"></i><span style="font-weight: 600; color: var(--text-title);">Koneksi Redundan Stabil</span></div></div>
-                   <div class="col-sm-6 mb-3"><div class="d-flex align-items-center"><i class="fa-solid fa-circle-check text-primary mr-2" style="font-size: 18px;"></i><span style="font-weight: 600; color: var(--text-title);">Bantuan Teknis 24 Jam</span></div></div>
+                   @if(!empty($about->misi_items) && count($about->misi_items) > 0)
+                       @foreach(array_slice($about->misi_items, 0, 4) as $misi)
+                           <div class="col-sm-6 mb-3"><div class="d-flex align-items-center"><i class="fa-solid fa-circle-check text-primary mr-2" style="font-size: 18px;"></i><span style="font-weight: 600; color: var(--text-title);">{{ $misi }}</span></div></div>
+                       @endforeach
+                   @else
+                       <div class="col-sm-6 mb-3"><div class="d-flex align-items-center"><i class="fa-solid fa-circle-check text-primary mr-2" style="font-size: 18px;"></i><span style="font-weight: 600; color: var(--text-title);">Unggah & Unduh Simetris</span></div></div>
+                       <div class="col-sm-6 mb-3"><div class="d-flex align-items-center"><i class="fa-solid fa-circle-check text-primary mr-2" style="font-size: 18px;"></i><span style="font-weight: 600; color: var(--text-title);">True Unlimited (No FUP)</span></div></div>
+                       <div class="col-sm-6 mb-3"><div class="d-flex align-items-center"><i class="fa-solid fa-circle-check text-primary mr-2" style="font-size: 18px;"></i><span style="font-weight: 600; color: var(--text-title);">Koneksi Redundan Stabil</span></div></div>
+                       <div class="col-sm-6 mb-3"><div class="d-flex align-items-center"><i class="fa-solid fa-circle-check text-primary mr-2" style="font-size: 18px;"></i><span style="font-weight: 600; color: var(--text-title);">Bantuan Teknis 24 Jam</span></div></div>
+                   @endif
                </div>
                <div class="mt-4">
                    <a href="{{ url('/tentang-kami') }}" class="btn btn-outline-indigo">Selengkapnya Tentang Kami</a>
@@ -73,8 +82,13 @@
             </div>
             <div class="col-lg-6 text-center">
                <div class="visual-wrapper" style="max-width: 480px;">
-                   <img src="{{ asset('pages/images/hosting-img.png') }}" alt="Infrastruktur Cio Network"
-                      class="img-fluid rounded-lg shadow-sm" style="border-radius: 16px;">
+                   @if(!empty($about->about_image))
+                       <img src="{{ asset('storage/' . $about->about_image) }}" alt="{{ $about->about_title ?? 'Infrastruktur Cio Network' }}"
+                          class="img-fluid rounded-lg shadow-sm" style="border-radius: 16px;">
+                   @else
+                       <img src="{{ asset('pages/images/hosting-img.png') }}" alt="Infrastruktur Cio Network"
+                          class="img-fluid rounded-lg shadow-sm" style="border-radius: 16px;">
+                   @endif
                </div>
             </div>
          </div>
